@@ -1,18 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsConfigPaths from "vite-tsconfig-paths";
-import linter from "vite-plugin-linter";
 import dts from "vite-plugin-dts";
-import { resolve } from "node:path";
-import * as packageJson from "./package.json";
-
-const { linterPlugin, EsLinter } = linter;
+import { resolve } from "path";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
+import packageJson from "./package.json";
 
 // https://vitejs.dev/config/
-export default defineConfig((configEnv) => ({
+export default defineConfig({
   build: {
+    sourcemap: true,
     lib: {
-      entry: resolve("src", "components/index.ts"),
+      entry: resolve("src", "index.tsx"),
       fileName: (format) => `vite-react-library.${format}.js`,
       formats: ["es", "umd"],
       name: "ViteReactLibrary",
@@ -23,14 +22,9 @@ export default defineConfig((configEnv) => ({
     },
   },
   plugins: [
-    dts({
-      include: ["src/components"],
-    }),
-    linterPlugin({
-      include: ["./src}/**/*.{ts,tsx}"],
-      linters: [new EsLinter({ configEnv })],
-    }),
+    cssInjectedByJsPlugin(),
+    dts({ insertTypesEntry: true }),
     react(),
     tsConfigPaths(),
   ],
-}));
+});

@@ -1,23 +1,76 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true,
+    "commonjs": true
   },
   "extends": [
+    "airbnb",
+    "airbnb/hooks",
     "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jsx-a11y/recommended",
+    "plugin:node/recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
-  "overrides": [],
+  "globals": { "React": "writable", "JSX": true },
+  "ignorePatterns": ["build", ".next", "node_modules", "dist"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "prettier", "jest", "@typescript-eslint"],
+  "root": true,
   "rules": {
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"]
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/extensions": [
+      "error",
+      { "ts": "ignorePackages", "json": "ignorePackages" }
+    ],
+    "import/no-cycle": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "no-return-assign": [2, "except-parens"],
+    "no-unused-vars": "warn",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "version": ">=8.0.0",
+        "ignores": ["dynamicImport", "modules", "restSpreadProperties"]
+      }
+    ],
+    "node/no-missing-import": "off",
+    "prettier/prettier": "warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/jsx-no-undef": "error",
+    "react/jsx-props-no-spreading": ["error", { "exceptions": ["Component"] }]
+  },
+  "settings": {
+    "react": { "version": "detect" },
+    "jest": { "version": "detect" }
   }
 }
