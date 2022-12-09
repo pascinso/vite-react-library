@@ -1,5 +1,5 @@
 export type Properties<Component> = {
-  [property in keyof Component]: {
+  [property in keyof Component]?: {
     value: Component[property];
     writable?: boolean;
   };

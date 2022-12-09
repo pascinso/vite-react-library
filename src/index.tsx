@@ -1,8 +1,6 @@
-"use client";
-
 import { useLayoutEffect, useState } from "react";
 import type { Counter } from "./@types";
-import classNames from "./counter.module.scss";
+import classNames from "./style.module.scss";
 import { defineProperties, throwError } from "./utils";
 
 const useCounter: Counter = ({ value }) => {

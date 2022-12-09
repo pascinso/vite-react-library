@@ -4,7 +4,8 @@ export function defineProperties<Component extends object>(
   component: Component,
   properties: Properties<Component>
 ) {
-  Object.defineProperties(component, properties);
+  const props: { prop?: object } = properties;
+  Object.defineProperties(component, props);
 }
 
 export function throwError<Component extends ComponentType>(
