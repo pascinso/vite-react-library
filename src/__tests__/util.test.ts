@@ -6,9 +6,9 @@ describe("throwError", () => {
     const error = throwError(useCounter, "count");
     expect(typeof error).toBe("function");
   });
-  it("should throw an error", () => {
+  it("should throw an error message", () => {
     const error = throwError(useCounter, "count");
-    const message = "Counter should be rendered to access count property";
+    const message = "Counter should be rendered to access 'count' property";
     expect(error).toThrow(Error(message));
   });
 });

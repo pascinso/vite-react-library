@@ -16,7 +16,7 @@ export function throwError<Component extends ComponentType>(
     throw new Error(
       `${component.name.substring(
         3
-      )} should be rendered to access ${property.toString()} property`
+      )} should be rendered to access '${property.toString()}' property`
     );
   };
 }
