@@ -9,7 +9,8 @@
     "!**/coverage/**",
     "!**/dist/**",
     "!**/jest_dx/**",
-    "!**/*.d.ts"
+    "!**/*.d.ts",
+    "!**/mocks.ts"
   ],
   "coverageDirectory": "<rootDir>/tests/coverage",
   "coverageReporters": ["json", "text", "lcov", "clover"],
@@ -35,7 +36,7 @@
 
   "resetMocks": true,
   "restoreMocks": true,
-  "roots": ["<rootDir>/src"],
+  "roots": ["<rootDir>/src/"],
 
   "testEnvironment": "jest-environment-jsdom",
   "testLocationInResults": true,
