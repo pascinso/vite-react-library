@@ -5,6 +5,4 @@ export type Properties<Component extends object> = {
   };
 };
 
-export type ComponentType = object & {
-  name: string;
-};
+export type ComponentType = object & { name: string };
