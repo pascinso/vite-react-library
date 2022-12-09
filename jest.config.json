@@ -6,7 +6,6 @@
     "**/*.{ts,tsx}",
     "!**/node_modules/**",
     "!**/tests/**",
-    "!**/coverage/**",
     "!**/dist/**",
     "!**/jest_dx/**",
     "!**/*.d.ts",
@@ -36,7 +35,7 @@
 
   "resetMocks": true,
   "restoreMocks": true,
-  "roots": ["<rootDir>/src/"],
+  "roots": ["<rootDir>/src"],
 
   "testEnvironment": "jest-environment-jsdom",
   "testLocationInResults": true,
@@ -48,7 +47,7 @@
     "/dist/",
     "/node_modules/",
     "<rootDir>/tests/",
-    "/coverage/"
+    "<rootDir>/mocks.ts"
   ],
   "transform": { "^.+\\.tsx?$": "ts-jest" },
 
