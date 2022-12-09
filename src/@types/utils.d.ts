@@ -1,4 +1,4 @@
-export type Properties<Component> = {
+export type Properties<Component extends object> = {
   [property in keyof Component]?: {
     value: Component[property];
     writable?: boolean;
